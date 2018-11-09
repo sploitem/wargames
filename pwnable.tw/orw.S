@@ -29,5 +29,5 @@ BITS 32
 	mov eax, 1
 	int 0x80
 
-;; nasm shellcode_no_null.S -o shell.bin
+;; nasm orw.S -o shell.bin
 ;; hexdump -v -e '1/1 "\\"' -e '1/1 "x%02x"' shell.bin ; echo

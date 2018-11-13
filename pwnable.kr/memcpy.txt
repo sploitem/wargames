@@ -1,0 +1,61 @@
+http://www.felixcloutier.com/x86/MOVNTPS.html
+https://wr.informatik.uni-hamburg.de/_media/teaching/wintersemester_2013_2014/epc-14-haase-svenhendrik-alignmentinc-paper.pdf
+
+malloc(size) will align with size + 8 on x32.
+MOVNTPS requires 16 byte align
+Just align max sizes by -8 starting from 64.
+
+memcpy@ubuntu:~$ echo "16 32 56 120 248 504 1016 2040 4088 8192" | nc 0 9022
+Hey, I have a boring assignment for CS class.. :(
+The assignment is simple.
+-----------------------------------------------------
+- What is the best implementation of memcpy?        -
+- 1. implement your own slow/fast version of memcpy -
+- 2. compare them with various size of data         -
+- 3. conclude your experiment and submit report     -
+-----------------------------------------------------
+This time, just help me out with my experiment and get flag
+No fancy hacking, I promise :D
+specify the memcpy amount between 8 ~ 16 : specify the memcpy amount between 16 ~ 32 : specify the memcpy amount between 32 ~ 64 : specify the memcpy amount between 64 ~ 128 : specify the memcpy amount between 128 ~ 256 : specify the memcpy amount between 256 ~ 512 : specify the memcpy amount between 512 ~ 1024 : specify the memcpy amount between 1024 ~ 2048 : specify the memcpy amount between 2048 ~ 4096 : specify the memcpy amount between 4096 ~ 8192 : ok, lets run the experiment with your configuration
+experiment 1 : memcpy with buffer size 16
+ellapsed CPU cycles for slow_memcpy : 1461
+ellapsed CPU cycles for fast_memcpy : 300
+
+experiment 2 : memcpy with buffer size 32
+ellapsed CPU cycles for slow_memcpy : 492
+ellapsed CPU cycles for fast_memcpy : 462
+
+experiment 3 : memcpy with buffer size 56
+ellapsed CPU cycles for slow_memcpy : 729
+ellapsed CPU cycles for fast_memcpy : 726
+
+experiment 4 : memcpy with buffer size 120
+ellapsed CPU cycles for slow_memcpy : 1482
+ellapsed CPU cycles for fast_memcpy : 900
+
+experiment 5 : memcpy with buffer size 248
+ellapsed CPU cycles for slow_memcpy : 3405
+ellapsed CPU cycles for fast_memcpy : 1044
+
+experiment 6 : memcpy with buffer size 504
+ellapsed CPU cycles for slow_memcpy : 6873
+ellapsed CPU cycles for fast_memcpy : 1098
+
+experiment 7 : memcpy with buffer size 1016
+ellapsed CPU cycles for slow_memcpy : 13665
+ellapsed CPU cycles for fast_memcpy : 1371
+
+experiment 8 : memcpy with buffer size 2040
+ellapsed CPU cycles for slow_memcpy : 27363
+ellapsed CPU cycles for fast_memcpy : 1905
+
+experiment 9 : memcpy with buffer size 4088
+ellapsed CPU cycles for slow_memcpy : 48276
+ellapsed CPU cycles for fast_memcpy : 2517
+
+experiment 10 : memcpy with buffer size 8192
+ellapsed CPU cycles for slow_memcpy : 104274
+ellapsed CPU cycles for fast_memcpy : 3132
+
+thanks for helping my experiment!
+flag : ##################################

